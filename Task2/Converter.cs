@@ -31,40 +31,12 @@ namespace Task2
         public double Krone { set { krone = value; } }
         public byte AnswerFromProgramcs { set { answerFromProgramcs = value; } }
 
-        //Определяем тяжесть кошелька пользователя
-        //public void DetermineTheAmountOfMoney()
-        //{
-        //    Console.WriteLine("Раскройте бумажник и укажите количество:");
-        //    for (int i = 0; i < 4; i++)
-        //    {
-        //        switch (i)
-        //        {
-        //            case 0:
-        //                Console.Write("рублей = ");
-        //                ruble = Double.Parse(Console.ReadLine());
-        //                break;
-        //            case 1:
-        //                Console.Write("долларов = ");
-        //                dollar = Double.Parse(Console.ReadLine());
-        //                break;
-        //            case 2:
-        //                Console.Write("евро = ");
-        //                euro = Double.Parse(Console.ReadLine());
-        //                break;
-        //            case 3:
-        //                Console.Write("датских крон = ");
-        //                krone = Double.Parse(Console.ReadLine());
-        //                break;
-        //        }
-        //    }
-        //    ConvertsCurrency();
-        //}
-
         public void ConvertsCurrency()
         {
             byte answerFromCase;
             switch (answerFromProgramcs)
             {
+                //добавить вовзращаемое значение в консоль
                 case 1:
                     Console.Write("\n1 - рубль в доллар\n2 - рубль в евро\n3 - рубль в крону\n\nМой ответ = ");
                     answerFromCase = Byte.Parse(Console.ReadLine());
@@ -89,12 +61,20 @@ namespace Task2
                     Console.Write("\n1 - доллар в рубль\n2 - евро в рубль\n3 - крона в рубль\n\nМой ответ = ");
                     answerFromCase = Byte.Parse(Console.ReadLine());
                     if (answerFromCase == 1)
-                        //подумать тут про переменные dollar, euro, krone
-                        ruble += dollar * rubleToUsdRate;
+                    {
+                        ruble += dollar * usdToRubleRate;
+                        dollar = 0;
+                    }         
                     else if (answerFromCase == 2)
-                        ruble += euro / rubleToEuroRate;
+                    {
+                        ruble += euro / euroToRubleRate;
+                        euro = 0;
+                    }                        
                     else
-                        ruble += krone / rubleToDkkRate;
+                    {
+                        ruble += krone / dkkToRubleRate;
+                        krone = 0;
+                    }                        
                     break;
                 default:
                     break;

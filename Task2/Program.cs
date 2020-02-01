@@ -32,6 +32,7 @@ namespace Task2
             //секция if
             Console.Write("\nВыберите перевод: \n1 - рубль в ...\n2 - ... в рубль\n\nМой ответ = ");
             conversion.AnswerFromProgramcs = Byte.Parse(Console.ReadLine());
+            //добавить вовзращаемое значение в консоль
 
             void DetermineTheAmountOfMoney()
             {
