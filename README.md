@@ -1,4 +1,4 @@
-# Lesson2_task2
+# Lesson2_task2 (ещё пилю)
 >Используя Visual Studio, создайте проект по шаблону Console Application.  
 Требуется:  
 Создать класс Converter. 
