@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Task2
 {
@@ -27,6 +25,10 @@ namespace Task2
         public double UsdToRubleRate { set { usdToRubleRate = value; } }
         public double EuroToRubleRate { set { euroToRubleRate = value; } }
         public double DkkToRubleRate { set { dkkToRubleRate = value; } }
+        public double Ruble { set { ruble = value; } }
+        public double Dollar { set { dollar = value; } }
+        public double Euro { set { euro = value; } }
+        public double Krone { set { krone = value; } }
         public byte AnswerFromProgramcs { set { answerFromProgramcs = value; } }
 
         //Определяем тяжесть кошелька пользователя
@@ -58,36 +60,45 @@ namespace Task2
         //    ConvertsCurrency();
         //}
 
-        //public void ConvertsCurrency()
-        //{
-        //    byte myAnswerOne, myAnswerTwo = 0;
-        //    Console.Write("\nВыберите перевод: \n1 - рубль в ...\n2 - ... в рубль\n\nМой ответ = ");
-        //    myAnswerOne = Byte.Parse(Console.ReadLine());
-        //    switch (myAnswerOne)
-        //    {
-        //        case 1:
-        //            Console.Write("\n1 - рубль в доллар\n2 - рубль в евро\n3 - рубль в крону\n\nМой ответ = ");
-        //            myAnswerTwo = Byte.Parse(Console.ReadLine());
-        //            if (myAnswerTwo == 1)
-        //                dollar += ruble / rubleToUsdRate;
-        //            else if (myAnswerTwo == 2)
-        //                euro += ruble / rubleToEuroRate;
-        //            else
-        //                krone += ruble / rubleToDkkRate;
-        //            break;
-        //        case 2:
-        //            Console.Write("\n1 - доллар в рубль\n2 - евро в рубль\n3 - крона в рубль\n\nМой ответ = ");
-        //            myAnswerTwo = Byte.Parse(Console.ReadLine());
-        //            if (myAnswerTwo == 1)
-        //                ruble += dollar * rubleToUsdRate;
-        //            else if (myAnswerTwo == 2)
-        //                ruble += euro / rubleToEuroRate;
-        //            else
-        //                ruble += krone / rubleToDkkRate;
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
+        public void ConvertsCurrency()
+        {
+            byte answerFromCase;
+            switch (answerFromProgramcs)
+            {
+                case 1:
+                    Console.Write("\n1 - рубль в доллар\n2 - рубль в евро\n3 - рубль в крону\n\nМой ответ = ");
+                    answerFromCase = Byte.Parse(Console.ReadLine());
+                    if (answerFromCase == 1)
+                    {
+                        dollar += ruble / rubleToUsdRate;
+                        ruble = 0;
+                    }
+                    else if (answerFromCase == 2)
+                    {
+                        euro += ruble / rubleToEuroRate;
+                        ruble = 0;
+                    }                        
+                    else
+                    {
+                        krone += ruble / rubleToDkkRate;
+                        ruble = 0;
+                    }                        
+                    break;
+
+                case 2:
+                    Console.Write("\n1 - доллар в рубль\n2 - евро в рубль\n3 - крона в рубль\n\nМой ответ = ");
+                    answerFromCase = Byte.Parse(Console.ReadLine());
+                    if (answerFromCase == 1)
+                        //подумать тут про переменные dollar, euro, krone
+                        ruble += dollar * rubleToUsdRate;
+                    else if (answerFromCase == 2)
+                        ruble += euro / rubleToEuroRate;
+                    else
+                        ruble += krone / rubleToDkkRate;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

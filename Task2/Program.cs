@@ -13,9 +13,8 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            double ruble, dollar, euro, krone;
+            double ruble = 0, dollar = 0, euro = 0, krone = 0;
             const double rubleToUsdRate = 65.03, rubleToEuroRate = 72.08, rubleToDkkRate = 100.80, usdToRubleRate = 62.84, euroToRubleRate = 69.63, dkkToRubleRate = 88.2;
-            byte myAnswerOne, myAnswerTwo = 0;
             
             Console.WriteLine("Курс (покупка / продажа):\nдоллар\t{0} / {1}\nевро\t{2} / {3}\nкрона\t{4} / {5}\n", usdToRubleRate, rubleToUsdRate, euroToRubleRate, rubleToEuroRate, dkkToRubleRate, rubleToDkkRate);
 
@@ -25,10 +24,14 @@ namespace Task2
             conversion.UsdToRubleRate = usdToRubleRate;
             conversion.EuroToRubleRate = euroToRubleRate;
             conversion.DkkToRubleRate = dkkToRubleRate;
+            conversion.Ruble = ruble;
+            conversion.Dollar = dollar;
+            conversion.Euro = euro;
+            conversion.Krone = krone;
 
             //секция if
             Console.Write("\nВыберите перевод: \n1 - рубль в ...\n2 - ... в рубль\n\nМой ответ = ");
-            myAnswerOne = Byte.Parse(Console.ReadLine());
+            conversion.AnswerFromProgramcs = Byte.Parse(Console.ReadLine());
 
             void DetermineTheAmountOfMoney()
             {
